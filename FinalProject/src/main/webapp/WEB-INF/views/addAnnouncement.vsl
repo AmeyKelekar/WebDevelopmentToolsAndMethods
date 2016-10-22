@@ -1,0 +1,44 @@
+#*
+    Document   : addAnnouncement
+    Created on : April 19, 2015, 3:02:37 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Add New Announcement</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class = "center ">Create Announcement</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="managerAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="managerProduct.htm">Manage Product</a></li>
+				<li role="presentation"><a href="managerInvoice.htm">Manage Invoice</a></li>
+				<li role="presentation"><a href="managerUser.htm">Manage User Account</a></li>
+				<li role="presentation"><a href="managerAnnouncement.htm">Manage Announcement</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<h1>Please enter the details below:</h1>
+        	<form method="POST" action="addAnnouncement.htm">
+        		<div class = "row">
+					<div class="col-md-4 center">
+						<label for = "content">Content</label>
+					</div>	
+					<div class="col-md-4">
+						<input type="text" name="content" id="content" class="form-control" required />
+					</div>
+					<div class="col-md-4">
+						<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
+					</div>
+				</div>
+       		</form>
+		</div>
+	</body>
+</html>

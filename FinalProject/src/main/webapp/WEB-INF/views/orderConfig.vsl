@@ -1,0 +1,56 @@
+#*
+    Document   : orderConfig
+    Created on : April 19, 2015, 9:43:07 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Order Config</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1>Order Config</h1>
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="viewProduct.htm">View Product</a></li>
+				<li role="presentation"><a href="viewCart.htm">View Cart</a></li>
+				<li role="presentation"><a href="viewInvoice.htm">View Invoice</a></li>
+				<li role="presentation"><a href="viewAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<div class="row"></div>
+			<div class="table-responsive">
+	  			<table class="table table-striped">
+	    			<tr>
+	    				<th>Requested Date</th>
+	    				<th>User Name</th>
+	    				<th>User Address</th>
+	    				<th>User Email</th>
+	    				<th>Product Name</th>
+	    				<th>Product Price</th>
+	    				<th>Note</th>
+	    			</tr>
+	    			<tr>
+	    				<td>${invoice.requestedDate}</td>
+	    				<td>${invoice.username}</td>
+	    				<td>${invoice.address}</td>
+	    				<td>${invoice.email}</td>
+	    				<td>${invoice.productname}</td>
+	    				<td>${invoice.productprice}</td>
+	    				<td>${invoice.note}</td>
+	    			</tr>
+	    		</table>
+			</div>
+			<div class="row"></div>
+			<div class="row center">
+				<a href="config.htm" class="btn btn-primary">Confirm</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<a href="viewProduct.htm" class="btn btn-primary">Cancel</a>
+			</div>
+		</div>
+	</body>
+</html>

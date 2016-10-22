@@ -1,0 +1,25 @@
+#*
+    Document   : loginError
+    Created on : April 19, 2015, 8:06:05 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Login Error</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+	         <div class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign"></span>
+				  <h1>Login Error!!</h1>
+			</div>
+			<!--<a href="loginForm.htm">Try again</a>-->
+			<a href="home.htm">Try again</a>
+	    </div>
+	 </body>
+</html>

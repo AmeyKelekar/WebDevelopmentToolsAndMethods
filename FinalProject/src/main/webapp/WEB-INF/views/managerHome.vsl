@@ -1,0 +1,30 @@
+#*
+    Document   : managerHome
+    Created on : April 19, 2015, 3:40:35 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Manager Home</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1>Manager Home</h1>
+			<h2>Hello, ${user.name}</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="managerAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="managerProduct.htm">Manage Product</a></li>
+				<li role="presentation"><a href="managerInvoice.htm">Manage Invoice</a></li>
+				<li role="presentation"><a href="managerUser.htm">Manage User Account</a></li>
+				<li role="presentation"><a href="managerAnnouncement.htm">Manage Announcement</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

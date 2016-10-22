@@ -1,0 +1,88 @@
+#*
+    Document   : viewProduct
+    Created on : April 19, 2015, 9:02:01 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Customer Account</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1 class="center">Manage Account</h1> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="viewProduct.htm">View Product</a></li>
+				<li role="presentation"><a href="viewCart.htm">View Cart</a></li>
+				<li role="presentation"><a href="viewInvoice.htm">View Invoice</a></li>
+				<li role="presentation"><a href="viewAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<form name="viewAccount" action="viewAccount.htm" method="POST">
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "userId">User ID:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="id" size="30" id="userId" value="${user.id}" class="form-control" disabled="disabled" />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "userName">User Name:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="username" size="30" id="userName" value="${user.username}" pattern="[A-Za-z0-9]{10,20}" maxlength="20" title="10 to 20 letters or numbers" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "password">Password:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="password" name="password" size="30" id="password" value="${user.password}" maxlength="20" pattern=".{8,25}" title="8 to 25 characters" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "name">Name:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="name" size="30" id="name" value="${user.name}" maxlength="30"class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "email">E-mail:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="email" name="email" size="30" id="email" value="${user.email}" maxlength="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "address">Address:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="address" size="30" id="address" value="${user.address}" maxlength="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" value="Update" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<bean id="invoiceDAO" class="com.amey.spring.dao.InvoiceDAO"></bean>
+	<bean id="productDAO" class="com.amey.spring.dao.ProductDAO"></bean>
+	<bean id="announcementDAO" class="com.amey.spring.dao.AnnouncementDAO"></bean>
+	<bean id="userDAO" class="com.amey.spring.dao.UserDAO"></bean>
+	<bean id="cartDAO" class="com.amey.spring.dao.CartDAO"></bean>
+	<bean id="paymentDAO" class="com.amey.spring.dao.PaymentDAO"></bean>
+</beans>

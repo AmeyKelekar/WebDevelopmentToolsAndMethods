@@ -1,0 +1,100 @@
+#*
+    Document   : registerForm
+    Created on : April 19, 2015, 9:25:31 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Register Account</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			function Validate(form){
+				if(document.getElementById("password").value != document.getElementById("password1").value){
+					alert("Password and Confirm Password do not match!!");
+                    return false;
+                }
+                else{
+                	return true;
+               }
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1 class="center">Create your account</h1>
+			<hr/>
+			<h4 class="center">Enter your information below</h4>
+			<br/>
+			<form name="register" action="register.htm" method="POST" onsubmit="return Validate(this);">
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "userName">User Name:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="username" id="userName" pattern="[A-Za-z0-9]{10,20}" maxlength="20" title="10 to 20 letters or numbers" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "password">Password:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="password" name="password" id="password" maxlength="25" pattern=".{8,25}" title="8 to 25 characters" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "password1">Confirm Password:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="password" name="password1" id="password1"  maxlength="25" pattern=".{8,25}" title="8 to 25 characters" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "name">Name:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="name" id="name" maxlength="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "email">E-mail:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="email" name="email" id="email" maxlength="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "address">Address:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="address" id="address" maxlength="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" id="submit" value="Register" class="btn btn-primary" />
+				</div>
+			</form>
+			<br/>
+			<div class="row center">
+				<a href="home.htm" class="btn btn-primary">Go Back</a>
+			</div>
+		</div>
+	</body>
+</html>

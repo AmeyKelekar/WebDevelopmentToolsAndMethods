@@ -1,0 +1,101 @@
+#*
+    Document   : addToCart
+    Created on : April 22, 2015, 7:18:37 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Add to Cart</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script>
+			function Calculate()
+			{
+	  			var quantity = document.getElementById("quantity").value;
+	  			var price = document.getElementById("price1").value; 
+	  			var total = parseFloat(quantity) * parseFloat(price) ;
+	  			document.getElementById("productPrice").value=total;
+			}
+		</script>
+		<script type="text/javascript">  
+            function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class = "center ">Add to Cart</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="viewProduct.htm">View Product</a></li>
+				<li role="presentation"><a href="viewCart.htm">View Cart</a></li>
+				<li role="presentation"><a href="viewInvoice.htm">View Invoice</a></li>
+				<li role="presentation"><a href="viewAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+        	<form method="POST" action="addToCart.htm" name="addToCart">
+        		<div class = "row">
+					<div class="col-md-6">
+						<label for = "productId">Product ID:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="productid" id="productId" value="${cart.productid}" class="form-control" readonly="readonly" />
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-6">
+						<label for = "productName">Product ID:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="name" id="productName" value="${cart.name}" class="form-control" readonly="readonly" />
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-6">
+						<label for = "productPrice">Product Price:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="price" id="productPrice" value="${cart.price}" class="form-control" readonly="readonly" />
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-6">
+						<label for = "quantity">Quantity:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="number" name="quantity" id="quantity" value="${cart.quantity}" class="form-control" min="1" max="5" onchange="Calculate()" onkeypress="return isNumber(event)" required />
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-6">
+						<label for = "productDescription">Product Description:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="description" id="productDescription" value="${cart.description}" class="form-control" readonly="readonly" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input type="hidden" name="price1" id="price1" value="${cart.price}"  />
+					</div>
+				</div>
+				<div class="row center">
+					<!--<a href="addToCart.htm?quantity=${cart.quantity}&price=${cart.price}" class="btn btn-primary">Add to Cart</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp-->
+					<input type="submit" name="submit" value="Add to Cart" class="btn btn-primary" />
+				</div>
+       		</form>
+       		<div class="row center">
+       			<a href="viewProduct.htm" class="btn btn-primary">Cancel</a>
+       		</div>
+		</div>
+	</body>
+</html>

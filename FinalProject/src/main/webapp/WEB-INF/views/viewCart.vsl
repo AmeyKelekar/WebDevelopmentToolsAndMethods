@@ -1,0 +1,87 @@
+#*
+    Document   : viewCart
+    Created on : April 22, 2015, 9:18:37 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>View Product</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+			function isMinimum(form){
+				if(parseInt(document.getElementById("total").value) < 1){
+                   	alert("Please add a product to the cart before check out!!");
+                    return false;
+                }
+                else{
+                	return true; 
+                }
+			}
+		</script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1>View Product</h1> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="viewProduct.htm">View Product</a></li>
+				<li role="presentation"><a href="viewCart.htm">View Cart</a></li>
+				<li role="presentation"><a href="viewInvoice.htm">View Invoice</a></li>
+				<li role="presentation"><a href="viewAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<div class="table-responsive">
+	  			<table class="table">
+	    			<tr class="success">
+	    				<th>Product ID</th>
+	    				<th>Product Name</th>
+	    				<th>Product Price</th>
+	    				<th>Quantity</th>
+	    				<th>Product Description</th>
+	    				<th></th>
+	    			</tr>
+	    			#foreach ($cart in $cartList)
+	    			<tr>
+	    				<td>${cart.productid}</td>
+	    				<td>${cart.name}</td>
+	    				<td>${cart.price} dollar</td>
+	    				<td>${cart.quantity}</td>
+	    				<td>${cart.description}</td>
+	    				<form method="POST" action="deleteCart.htm">
+	    					<td>
+	    						<input type="hidden" name="id" value="${cart.id}" />
+	    						<input type="submit" name="delete${cart.id}" value="Delete" class="btn btn-primary" />
+	    					</td>
+	    				</form>
+	    			</tr>
+	    			#end 
+	  			</table>
+			</div>
+			<br/>
+			#set($total = 0)
+			#foreach($cart in $cartList)
+				#set($total = $total + ${cart.price})
+			#end
+			<form method="GET" action="payment.htm" name="payment" onsubmit="return isMinimum(this)">
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "total">Total price:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="number" name="price" id="total" value="$total" class="form-control" min="1" readonly="readonly"  />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" id="submit" value="Checkout" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<a href="viewProduct.htm" class="btn btn-primary">Add to Cart</a>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

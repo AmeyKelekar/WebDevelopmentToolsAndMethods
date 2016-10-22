@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+
+body{
+		color:#000000;    
+		background-color:#ffffff;    
+		font-family:arial, verdana, sans-serif;    
+		font-weight:bold;    
+		font-size:15px;
+		height: 100%;
+}
+.wrapper{
+		margin-left:auto;
+		margin-right:auto;
+		width:1080px;
+} 		
+.center {
+		text-align:center;
+}
+
+.carousel {
+	margin: 0px 0px 20px 0px;
+}

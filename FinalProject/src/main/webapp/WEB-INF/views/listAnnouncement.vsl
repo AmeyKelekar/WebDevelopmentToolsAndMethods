@@ -1,0 +1,79 @@
+#*
+    Document   : listAnnouncement
+    Created on : April 19, 2015, 6:25:37 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Manage Announcement</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">  
+        	function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class = "center ">Manage Announcement</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="managerAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="managerProduct.htm">Manage Product</a></li>
+				<li role="presentation"><a href="managerInvoice.htm">Manage Invoice</a></li>
+				<li role="presentation"><a href="managerUser.htm">Manage User Account</a></li>
+				<li role="presentation"><a href="managerAnnouncement.htm">Manage Announcement</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<div class="table-responsive">
+	  			<table class="table">
+	    			<tr class="success">
+	    				<th>Announcement ID</th>
+	    				<th>Announcement Date</th>
+	    				<th>Announcement Content</th>
+	    				<th>Announcement Postby</th>
+	    			</tr>
+	    			#foreach ($announcement in $arrayList)
+	    			<tr>
+	    				<td>${announcement.id}</td>
+	    				<td>${announcement.date}</td>
+	    				<td>${announcement.content}</td>
+	    				<td>${announcement.postby}</td>
+	    			</tr>
+	    			#end 
+	  			</table>
+			</div>
+			<br/>
+			<hr/>
+			<div class="row center">
+				<form action="managerAnnouncement.htm" method="POST" >
+					<input type="submit" name="submit" value="Create New Announcement" class="btn btn-primary"/>
+				</form>
+			</div>
+			<br/>
+			<form action="deleteAnnouncement.htm" name="form1">
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "announcementId">Enter ID of the announcement delete it:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="id" id="announcementId" class="form-control" onkeypress="return isNumber(event)" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" value="Delete" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

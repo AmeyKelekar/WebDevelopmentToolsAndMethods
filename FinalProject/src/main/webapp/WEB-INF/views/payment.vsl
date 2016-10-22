@@ -1,0 +1,123 @@
+#*
+    Document   : payment
+    Created on : April 23, 2015, 1:27:17 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>View Product</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+            function isSelectedRadioButton(form) {
+                var selectedButton = false;
+                for(var i=0; i<form.card.length;i++){
+                    if(form.card[i].checked)
+                        selectedButton = true;
+                }
+                if(!selectedButton){
+                    alert("Please select a card type!!");
+                    return false;
+                }
+            }
+		</script>
+        <script type="text/javascript">  
+            function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class="center">Enter payment details</h2>
+			<form method="POST" action="payment.htm" name="payment" onsubmit="return isSelectedRadioButton(this);">
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label for = "memberName">Member Name:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="membername" id="memberName"  class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class = "row">
+					<div class="col-md-6 center">
+						<label>Credit Card Type:</label>
+					</div>	
+					<div class="col-md-3">
+						<span class="input-group-addon">
+							<input type="radio" id="visa" name="card" value="visa"/><label for="visa">Visa</label>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<span class="input-group-addon">
+							<input type="radio" id="master" name="card" value="master"/><label for="master">Master Card</label>
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+					</div>
+					<div class="col-md-3">
+						<span class="input-group-addon">
+							<input type="radio" id="express" name="card" value="express"/><label for="express">American Express</label>
+						</span>
+					</div>
+					<div class="col-md-3">
+						<span class="input-group-addon">
+							<input type="radio" id="discover" name="card" value="discover"/><label for="discover">Discover</label>
+						</span>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for="cardNumber">Credit Card no:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="text" name="cardnumber" id="cardNumber" maxlength="16" pattern="[0-9]{16}" title="16 digit card number only" class="form-control" onkeypress="return isNumber(event)" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for="cvv">CVV:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="password" name="cvv" id="cvv" maxlength="3" class="form-control" pattern="[0-9]{3}" title="Three number CVV code" onkeypress="return isNumber(event)" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for="amount">Total Amount:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="number" name="amount" id="amount" value="${total}" class="form-control" min="1" readonly="readonly" />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "email">E-mail:</label>
+					</div>
+					<div class="col-md-6">
+						<input type="email" name="email" id="email" size="30" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" value="Make Payment" class="btn btn-primary" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					<a href="viewProduct.htm" class="btn btn-primary">Cancel</a>
+				</div>	
+			</form>
+		</div>
+	</body>
+</html>

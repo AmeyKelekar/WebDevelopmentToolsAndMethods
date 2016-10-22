@@ -1,0 +1,75 @@
+#*
+    Document   : listUser
+    Created on : April 19, 2015, 7:57:18 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Manage User</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">  
+        	function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class = "center ">Manage User</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="managerAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="managerProduct.htm">Manage Product</a></li>
+				<li role="presentation"><a href="managerInvoice.htm">Manage Invoice</a></li>
+				<li role="presentation"><a href="managerUser.htm">Manage User Account</a></li>
+				<li role="presentation"><a href="managerAnnouncement.htm">Manage Announcement</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<div class="table-responsive">
+	  			<table class="table">
+	    			<tr class="success">
+	    				<th>User ID</th>
+	    				<th>User Name</th>
+	    				<th>Name</th>
+	    				<th>Address</th>
+	    				<th>Email</th>
+	    			</tr>
+	    			#foreach ($user in $userList)
+	    			<tr>
+	    				<td>${user.id}</td>
+	    				<td>${user.username}</td>
+	    				<td>${user.name}</td>
+	    				<td>${user.address}</td>
+	    				<td>${user.email}</td>
+	    			</tr>
+	    			#end 
+	  			</table>
+			</div>
+			<br/>
+			<hr/>
+			<form action="managerUser.htm" method="POST" name="managerUser">
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "userId">Enter user id to delete the user:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="id" id="userId" class="form-control" onkeypress="return isNumber(event)" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" value="Delete" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+#*
+    Document   : managerInvoice
+    Created on : April 19, 2015, 3:58:15 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Manage Invoice</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+            function isSelectedRadioButton(form) {
+                var selectedButton = false;
+                for(var i=0; i<form.status.length;i++){
+                    if(form.status[i].checked)
+                        selectedButton = true;
+                }
+                if(!selectedButton){
+                    alert("Please select a status type!!");
+                    return false;
+                }
+            }
+        </script>
+        <script type="text/javascript">  
+        	function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h2 class = "center ">Manage Invoice</h2> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="managerAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="managerProduct.htm">Manage Product</a></li>
+				<li role="presentation"><a href="managerInvoice.htm">Manage Invoice</a></li>
+				<li role="presentation"><a href="managerUser.htm">Manage User Account</a></li>
+				<li role="presentation"><a href="managerAnnouncement.htm">Manage Announcement</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<div class="table-responsive">
+  				<table class="table">
+    				<tr class="success">
+    					<th>Invoice ID</th>
+    					<th>Customer Name</th>
+    					<th>Customer Address</th>
+    					<th>Customer Email</th>
+    					<th>Product Name</th>
+    					<th>Product Price</th>
+    					<th>Requested Date</th>
+    					<th>Last Update Date</th>
+    					<th>Note</th>
+    					<th>Status</th>
+    				</tr>
+    				#foreach ($invoice in $invoiceList)
+    				<tr>
+    					<td>${invoice.id}</td>
+    					<td>${invoice.username}</td>
+    					<td>${invoice.address}</td>
+    					<td>${invoice.email}</td>
+    					<td>${invoice.productname}</td>
+    					<td>${invoice.productprice}</td>
+    					<td>${invoice.requestedDate}</td>
+    					<td>${invoice.updateDate}</td>
+    					<td>${invoice.note}</td>
+    					<td>${invoice.status}</td>
+    				</tr>
+    				#end 
+  				</table>
+			</div>
+			<br/>
+			<form method="POST" action="managerInvoice.htm" name="managerInvoice" onsubmit="return isSelectedRadioButton(this);">
+        		<div class = "row">
+        			<div class="col-md-6 center">
+						<label for = "invoiceId">Enter Invoice ID:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="id" id="invoiceId"  class="form-control" onkeypress="return isNumber(event)" required />
+					</div>
+        		</div>
+        		<br/>
+        		<div class = "row">
+        			<div class="col-md-6 center">
+						<label>Change its status to:</label>
+					</div>	
+					<div class="col-md-6">
+						<span class="input-group-addon">
+							<input type="radio" name="status" value="Received" />Received
+						</span>
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-6">
+					</div>
+					<div class="col-md-6">
+						<span class="input-group-addon">
+							<input type="radio" name="status" value="Pending" />Pending
+						</span>
+					</div>
+				<div>
+				<div class = "row">
+					<div class="col-md-6">
+					</div>
+					<div class="col-md-6">
+						<span class="input-group-addon">
+							<input type="radio" name="status" value="Completed" />Completed
+						</span>
+					</div>
+        		</div>
+        		<br/>
+        		<div class="row center">
+					<input type="submit" name="submit" value="Update" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

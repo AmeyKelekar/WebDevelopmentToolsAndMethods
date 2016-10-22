@@ -1,0 +1,25 @@
+#*
+    Document   : registerError
+    Created on : April 19, 2015, 9:18:09 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Registration Error</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class = "wrapper">
+	    	<div class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				  <h1>Registration Error!!</h1>
+				  <h3>Username ${user.username} has already been registered!</h3>
+			</div>
+			<a href="registerForm.htm">Try again</a>
+	    </div>
+	 </body>
+</html>

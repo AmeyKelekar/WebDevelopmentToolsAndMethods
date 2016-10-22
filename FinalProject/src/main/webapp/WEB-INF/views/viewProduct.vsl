@@ -1,0 +1,81 @@
+#*
+    Document   : viewProduct
+    Created on : April 19, 2015, 8:47:32 PM
+    Author     : Amey
+*#
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>View Product</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" type = "text/css" href = "css/registration.css" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script type="text/javascript">
+            function isNumber(newEvent) {
+                var charCode = (newEvent.which) ? newEvent.which : newEvent.keyCode;
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+	</head>
+	<body>
+		<div class = "wrapper">
+			<h1 class="center">View Product</h1> 
+			<hr/>
+			<ul class="nav nav-pills" role="tablist">
+				<li role="presentation"><a href="viewProduct.htm">View Product</a></li>
+				<li role="presentation"><a href="viewCart.htm">View Cart</a></li>
+				<li role="presentation"><a href="viewInvoice.htm">View Invoice</a></li>
+				<li role="presentation"><a href="viewAccount.htm">Manage Account</a></li>
+				<li role="presentation"><a href="logout.htm">Log Out</a></li>
+			</ul>
+			<br/>
+			<div class="table-responsive">
+	  			<table class="table">
+	    			<tr class="success">
+	    				<th>Product ID</th>
+	    				<th>Product Name</th>
+	    				<th>Product Price</th>
+	    				<th>Product Description</th>
+	    			</tr>
+	    			#foreach ($product in $productList)
+	    			<tr>
+	    				<td>${product.id}</td>
+	    				<td>${product.name}</td>
+	    				<td>${product.price} dollar</td>
+	    				<td>${product.description}</td>
+	    			</tr>
+	    			#end 
+	  			</table>
+			</div>
+			<div class="row"></div>
+			<hr/>
+			<form name="viewProduct" action="viewProduct.htm" method="POST">
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "productId">Enter product ID:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="number" name="id" id="productId" onkeypress="return isNumber(event)" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-6 center">
+						<label for = "note">Enter any notes:</label>
+					</div>	
+					<div class="col-md-6">
+						<input type="text" name="note" id="note" class="form-control" required />
+					</div>
+				</div>
+				<br/>
+				<div class="row center">
+					<input type="submit" name="submit" value="Place Order" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
